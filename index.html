@@ -2,25 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luke Irvine Design</title>
+
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
+      background: #f1f2f2;
+      color: #111;
+    }
+
+    header {
+      padding: 80px 20px;
       text-align: center;
-      margin-top: 80px;
-      background: #f5f5f5;
+      background: #2b3990;
+      color: white;
     }
+
+    header img {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+
     h1 {
-      font-size: 40px;
+      font-size: 42px;
+      margin-bottom: 15px;
     }
+
     p {
-      font-size: 18px;
-      color: #555;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: white;
+      color: #2b3990;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 260px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color: #2b3990;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    a {
+      color: inherit;
     }
   </style>
 </head>
+
 <body>
-  <h1>Welcome to my site</h1>
-  <p>This is my first website 🚀</p>
+
+  <header>
+    <!-- REPLACE logo.png with your actual file name -->
+    <img src="logo.png" alt="Logo">
+
+    <h1>Graphic & Web Design</h1>
+    <p>I help businesses stand out with clean, modern design and high-performing websites.</p>
+
+    <a href="mailto:youremail@example.com" class="btn">Get in touch</a>
+  </header>
+
+  <section>
+    <h2>Services</h2>
+
+    <div class="services">
+      <div class="card">
+        <h3>Graphic Design</h3>
+        <p>Logos, branding, and visual identity that makes your business stand out.</p>
+      </div>
+
+      <div class="card">
+        <h3>Web Design</h3>
+        <p>Modern, responsive websites designed to convert visitors into clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected Work</h2>
+    <p>Portfolio coming soon — contact me to see recent projects.</p>
+  </section>
+
+  <section>
+    <h2>About</h2>
+    <p>I’m Luke Irvine, a graphic and web designer focused on creating clean, effective design that helps brands grow and stand out.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Luke Irvine</p>
+  </footer>
+
 </body>
 </html>
