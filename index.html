@@ -1,169 +1,926 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luke Irvine Design</title>
-
-  <!-- Modern font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luke Irvine Design | Graphic & Web Design</title>
+  <meta
+    name="description"
+    content="Luke Irvine Design creates sharp branding, graphic design and modern websites for ambitious businesses."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
+    :root {
+      --blue: #2b3990;
+      --blue-dark: #1f2a6d;
+      --blue-soft: #dfe4ff;
+      --bg: #f1f2f2;
+      --white: #ffffff;
+      --text: #111827;
+      --muted: #5f6675;
+      --line: rgba(17, 24, 39, 0.08);
+      --shadow: 0 20px 60px rgba(17, 24, 39, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f1f2f2;
-      color: #111;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(43, 57, 144, 0.08), transparent 30%),
+        linear-gradient(180deg, #f7f8f8 0%, var(--bg) 100%);
     }
 
-    /* NAVBAR */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: #f1f2f2;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    nav img {
-      height: 40px;
-    }
-
-    nav a {
-      margin-left: 20px;
+    a {
+      color: inherit;
       text-decoration: none;
-      color: #111;
-      font-weight: 500;
     }
 
-    /* HERO */
-    header {
-      padding: 100px 20px;
-      text-align: center;
-      background: #2b3990;
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 999px;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      margin: 0 0 14px;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 248, 248, 0.82);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+    }
+
+    .nav {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 220px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: #202734;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(43, 57, 144, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover,
+    .btn:hover,
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 48px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 26%),
+        linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
       color: white;
+      padding: 64px;
+      position: relative;
+      isolation: isolate;
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    header h1 {
-      font-size: 52px;
-      margin-bottom: 20px;
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: auto -60px -90px auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      z-index: -1;
     }
 
-    header p {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      color: #ddd;
-      font-size: 18px;
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: 36px 36px auto auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.14);
+      z-index: -1;
+    }
+
+    .hero-top {
+      max-width: 720px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(10px);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5.7rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      margin: 0 0 22px;
+      max-width: 9.5ch;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.86);
+      max-width: 670px;
+      margin: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .btn {
-      display: inline-block;
-      padding: 14px 32px;
       background: white;
-      color: #2b3990;
-      text-decoration: none;
-      border-radius: 6px;
+      color: var(--blue);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+    }
+
+    .btn-secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 42px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .hero-stat span {
+      color: rgba(255,255,255,0.76);
+      font-size: 0.95rem;
+    }
+
+    .hero-side {
+      background: linear-gradient(180deg, #ffffff 0%, #f7f8fc 100%);
+      padding: 28px;
+      display: grid;
+      gap: 18px;
+      min-height: 640px;
+    }
+
+    .feature-card,
+    .mini-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.04);
+    }
+
+    .feature-card {
+      padding: 32px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.6rem;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .feature-card p,
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #293141;
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .feature-list li::before {
+      content: "•";
+      color: var(--blue);
+      font-size: 1.4rem;
+      line-height: 1;
+      margin-top: -1px;
+    }
+
+    .hero-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+
+    .trust-strip {
+      padding-top: 12px;
+    }
+
+    .trust-box {
+      background: rgba(43, 57, 144, 0.05);
+      border: 1px solid rgba(43, 57, 144, 0.08);
+      border-radius: 22px;
+      padding: 22px 24px;
+      color: #283247;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 14px 40px rgba(17, 24, 39, 0.04);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .service:hover,
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(17, 24, 39, 0.08);
+    }
+
+    .service-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .service h3 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .service p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      min-height: 340px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(17, 24, 39, 0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .portfolio-visual {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,0.16), transparent 35%),
+        linear-gradient(135deg, #3647b3 0%, #1e275f 100%);
+    }
+
+    .portfolio-visual.alt-1 {
+      background:
+        linear-gradient(160deg, rgba(255,255,255,0.16), transparent 35%),
+        linear-gradient(135deg, #ffffff 0%, #dfe4ff 100%);
+    }
+
+    .portfolio-visual.alt-2 {
+      background:
+        linear-gradient(160deg, rgba(255,255,255,0.1), transparent 35%),
+        linear-gradient(135deg, #3f51d6 0%, #10172e 100%);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 28px;
+      color: white;
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 16, 32, 0.82) 68%);
+    }
+
+    .portfolio-card.light .portfolio-overlay {
+      color: #111827;
+      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.96) 60%);
+    }
+
+    .portfolio-tag {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.14);
+      margin-bottom: 12px;
+    }
+
+    .portfolio-card.light .portfolio-tag {
+      background: rgba(43, 57, 144, 0.08);
+      color: var(--blue);
+    }
+
+    .portfolio-overlay h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .portfolio-overlay p {
+      margin: 0;
+      opacity: 0.92;
+      line-height: 1.7;
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-card,
+    .contact-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 38px;
+      box-shadow: 0 16px 50px rgba(17, 24, 39, 0.05);
+    }
+
+    .about-card h3,
+    .contact-card h3 {
+      margin: 0 0 16px;
+      font-size: 1.8rem;
+      letter-spacing: -0.04em;
+    }
+
+    .about-card p,
+    .contact-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .about-point {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-point strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f8f9fb;
+      border: 1px solid rgba(17, 24, 39, 0.05);
       font-weight: 600;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 80px 20px;
-      text-align: center;
+    .contact-item span {
+      color: var(--muted);
+      font-weight: 500;
     }
 
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
+    .footer {
+      padding: 28px 0 50px;
     }
 
-    /* SERVICES */
-    .services {
+    .footer-inner {
+      border-top: 1px solid rgba(17, 24, 39, 0.08);
+      padding-top: 24px;
       display: flex;
-      justify-content: center;
-      gap: 30px;
+      justify-content: space-between;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      width: 260px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-      transition: 0.2s;
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .services-grid,
+      .portfolio-grid,
+      .about-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-side {
+        min-height: auto;
+      }
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 78px;
+      }
 
-    .card h3 {
-      color: #2b3990;
-      margin-bottom: 10px;
-    }
+      .brand img {
+        width: 170px;
+      }
 
-    /* FOOTER */
-    footer {
-      background: #111;
-      color: #aaa;
-      text-align: center;
-      padding: 40px 20px;
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 26px;
+      }
+
+      .hero-main {
+        padding: 34px 24px;
+      }
+
+      .hero-side {
+        padding: 18px;
+      }
+
+      .hero-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .about-card,
+      .contact-card,
+      .feature-card,
+      .service {
+        padding: 26px;
+      }
     }
   </style>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Luke Irvine Design home">
+        <img src="./lukeirvinedesign_blue.png" alt="Luke Irvine Design logo" />
+      </a>
 
-  <!-- NAVBAR -->
-  <nav>
-    <img src="./lukeirvinedesign_blue.png" alt="Logo">
-    <div>
-      <a href="#">Home</a>
-      <a href="#">Work</a>
-      <a href="#">Contact</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Start a project</a>
+      </nav>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <header>
-    <h1>Graphic & Web Design</h1>
-    <p>I create clean, modern design and websites that help brands stand out and grow.</p>
-    <a href="mailto:youremail@example.com" class="btn">Get in touch</a>
   </header>
 
-  <!-- SERVICES -->
-  <section>
-    <h2>Services</h2>
-    <div class="services">
-      <div class="card">
-        <h3>Graphic Design</h3>
-        <p>Branding, logos, and visuals that make an impact.</p>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <div class="hero-top">
+            <div class="hero-kicker">Graphic & Web Design Studio</div>
+            <h1>Design that makes your business look the part.</h1>
+            <p>
+              I create high-impact branding, graphics and websites for businesses
+              that want to look sharper, feel more credible and turn attention into enquiries.
+            </p>
+
+            <div class="hero-actions">
+              <a href="mailto:youremail@example.com" class="btn">Get in touch</a>
+              <a href="#work" class="btn-secondary">View my work</a>
+            </div>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-stat">
+              <strong>Branding</strong>
+              <span>Identity systems, graphics, visuals</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Web Design</strong>
+              <span>Clean, responsive, lead-focused sites</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Built to convert</strong>
+              <span>Clear messaging and sharp presentation</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="feature-card">
+            <h3>What clients need now</h3>
+            <p>
+              Strong design is not just about looking good. It is about trust,
+              clarity and making the right first impression from the second someone lands on your page.
+            </p>
+
+            <ul class="feature-list">
+              <li>Professional branding that feels considered and premium</li>
+              <li>Modern websites designed to convert visitors into enquiries</li>
+              <li>Clean visual systems that make your business look established</li>
+            </ul>
+          </div>
+
+          <div class="hero-stack">
+            <div class="mini-card">
+              <strong>Graphic Design</strong>
+              <p>Brand assets, ad creatives, print design, social content and visual identity.</p>
+            </div>
+            <div class="mini-card">
+              <strong>Web Design</strong>
+              <p>Simple, modern and strategic websites that are easy to navigate and built to perform.</p>
+            </div>
+          </div>
+
+          <div class="trust-strip">
+            <div class="trust-box">
+              You only get one first impression. Good design makes that impression feel immediate, confident and credible.
+            </div>
+          </div>
+        </aside>
       </div>
-      <div class="card">
-        <h3>Web Design</h3>
-        <p>Modern, responsive websites built to convert.</p>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Services</div>
+          <h2>Creative work that looks sharp and works hard.</h2>
+          <p>
+            Whether you need a stronger brand presence or a cleaner website,
+            the goal is the same: give your business a more polished, modern and professional face.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service">
+            <div class="service-num">01</div>
+            <h3>Brand & Graphic Design</h3>
+            <p>
+              Logo work, visual identity, marketing graphics, social assets and
+              branded materials built to give your business a stronger visual presence.
+            </p>
+          </article>
+
+          <article class="service">
+            <div class="service-num">02</div>
+            <h3>Website Design</h3>
+            <p>
+              Bespoke websites with clean structure, sharp presentation and a user experience
+              that makes it easy for potential clients to take the next step.
+            </p>
+          </article>
+
+          <article class="service">
+            <div class="service-num">03</div>
+            <h3>Creative Direction</h3>
+            <p>
+              A joined-up approach to messaging, layout and presentation so your brand feels consistent,
+              intentional and more premium across every touchpoint.
+            </p>
+          </article>
+        </div>
       </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Selected Work</div>
+          <h2>Work that feels modern, confident and commercially sharp.</h2>
+          <p>
+            Replace these with your real projects next. For now, this gives the site a proper portfolio presence.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <div class="portfolio-visual"></div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Brand Identity</span>
+              <h3>Premium brand refresh</h3>
+              <p>Visual identity system designed to make a service business look more established and credible.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card light">
+            <div class="portfolio-visual alt-1"></div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Website Design</span>
+              <h3>Modern business website</h3>
+              <p>Clean structure, stronger hierarchy and a more polished digital front door for new enquiries.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-visual alt-2"></div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Creative Assets</span>
+              <h3>Campaign visuals</h3>
+              <p>Branded graphics and digital design created to capture attention and keep the look consistent.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-wrap">
+        <div class="about-card">
+          <div class="eyebrow">About</div>
+          <h3>Luke Irvine Design</h3>
+          <p>
+            I design for businesses that want to present themselves better.
+            That means sharper branding, cleaner websites and visuals that
+            create trust quickly.
+          </p>
+          <p>
+            My approach is simple: make the work look refined, modern and purposeful,
+            without clutter or gimmicks. The result is design that feels premium and communicates clearly.
+          </p>
+
+          <div class="about-points">
+            <div class="about-point">
+              <div>
+                <strong>Clarity first</strong>
+                Better hierarchy, cleaner layouts and messaging that feels easy to take in.
+              </div>
+            </div>
+            <div class="about-point">
+              <div>
+                <strong>Professional presence</strong>
+                Design that helps smaller brands look more credible and established.
+              </div>
+            </div>
+            <div class="about-point">
+              <div>
+                <strong>Modern execution</strong>
+                Contemporary visuals that feel current, sharp and commercially useful.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card" id="contact">
+          <div class="eyebrow">Contact</div>
+          <h3>Let’s build something that looks the part.</h3>
+          <p>
+            If you need branding, graphics or a website that presents your business properly,
+            get in touch and let’s talk through what you need.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:youremail@example.com">youremail@example.com</a>
+            </div>
+            <div class="contact-item">
+              <span>Services</span>
+              <div>Graphic Design / Web Design</div>
+            </div>
+            <div class="contact-item">
+              <span>Based in</span>
+              <div>United Kingdom</div>
+            </div>
+          </div>
+
+          <a href="mailto:youremail@example.com" class="btn">Start your project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Luke Irvine Design</div>
+      <div>Graphic Design · Web Design · Branding</div>
     </div>
-  </section>
-
-  <!-- WORK -->
-  <section>
-    <h2>Selected Work</h2>
-    <p>Portfolio coming soon — contact me to see recent projects.</p>
-  </section>
-
-  <!-- ABOUT -->
-  <section>
-    <h2>About</h2>
-    <p>I’m Luke Irvine, a graphic and web designer focused on creating clean, effective design that helps brands grow.</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Luke Irvine</p>
   </footer>
-
 </body>
 </html>
