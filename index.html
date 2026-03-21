@@ -106,13 +106,43 @@
       line-height: 1.75;
     }
 
+    /* Seamless header + hero */
+    .top-shell {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 26%),
+        linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .top-shell::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -100px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .top-shell::after {
+      content: "";
+      position: absolute;
+      inset: 40px 40px auto auto;
+      width: 130px;
+      height: 130px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
     .site-header {
       position: sticky;
       top: 0;
       z-index: 50;
+      background: rgba(31, 42, 109, 0.78);
       backdrop-filter: blur(14px);
-      background: rgba(247, 248, 248, 0.82);
-      border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
@@ -134,6 +164,7 @@
       width: 220px;
       height: auto;
       object-fit: contain;
+      filter: brightness(0) invert(1);
     }
 
     .nav-links {
@@ -142,7 +173,7 @@
       gap: 28px;
       font-size: 0.97rem;
       font-weight: 600;
-      color: #202734;
+      color: rgba(255,255,255,0.92);
     }
 
     .nav-links a {
@@ -157,7 +188,7 @@
       width: 100%;
       height: 2px;
       border-radius: 999px;
-      background: var(--blue);
+      background: white;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.25s ease;
@@ -170,21 +201,24 @@
     .nav-cta {
       padding: 14px 20px;
       border-radius: 999px;
-      background: var(--blue);
-      color: var(--white);
+      background: white;
+      color: var(--blue);
       font-weight: 700;
-      box-shadow: 0 10px 30px rgba(43, 57, 144, 0.18);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .nav-cta:hover,
     .btn:hover,
-    .btn-secondary:hover {
+    .btn-secondary:hover,
+    .form-button:hover {
       transform: translateY(-2px);
     }
 
     .hero {
-      padding: 48px 0 56px;
+      padding: 24px 0 56px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-grid {
@@ -202,39 +236,15 @@
     }
 
     .hero-main {
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 26%),
-        linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
       color: white;
       padding: 64px;
-      position: relative;
-      isolation: isolate;
       min-height: 640px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-
-    .hero-main::before {
-      content: "";
-      position: absolute;
-      inset: auto -60px -90px auto;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      z-index: -1;
-    }
-
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      inset: 36px 36px auto auto;
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.14);
-      z-index: -1;
+      backdrop-filter: blur(6px);
     }
 
     .hero-top {
@@ -280,7 +290,8 @@
     }
 
     .btn,
-    .btn-secondary {
+    .btn-secondary,
+    .form-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -290,9 +301,14 @@
       border-radius: 999px;
       font-weight: 700;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
     }
 
-    .btn {
+    .btn,
+    .form-button {
       background: white;
       color: var(--blue);
       box-shadow: 0 16px 30px rgba(0,0,0,0.12);
@@ -351,6 +367,7 @@
       font-size: 1.6rem;
       margin: 0 0 12px;
       letter-spacing: -0.03em;
+      color: var(--text);
     }
 
     .feature-card p,
@@ -612,6 +629,50 @@
       word-break: break-word;
     }
 
+    .contact-form {
+      margin-top: 10px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: #f8f9fb;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font: inherit;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: rgba(43, 57, 144, 0.35);
+      box-shadow: 0 0 0 4px rgba(43, 57, 144, 0.08);
+      background: white;
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
     .footer {
       padding: 28px 0 50px;
     }
@@ -655,7 +716,7 @@
       }
 
       .hero {
-        padding-top: 26px;
+        padding-top: 18px;
       }
 
       .hero-main {
@@ -666,7 +727,8 @@
         padding: 18px;
       }
 
-      .hero-stack {
+      .hero-stack,
+      .form-row {
         grid-template-columns: 1fr;
       }
 
@@ -689,238 +751,264 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#top" class="brand" aria-label="Luke Irvine Design home">
-        <img src="./lukeirvinedesign_blue.png" alt="Luke Irvine Design logo" />
-      </a>
+  <div class="top-shell">
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#top" class="brand" aria-label="Luke Irvine Design home">
+          <img src="./lukeirvinedesign_blue.png" alt="Luke Irvine Design logo" />
+        </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="nav-cta">Start a project</a>
-      </nav>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="nav-cta">Start a project</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-main">
+            <div class="hero-top">
+              <div class="hero-kicker">Graphic & Web Design Studio</div>
+              <h1>Design that makes your business look the part.</h1>
+              <p>
+                I create high-impact branding, graphics and websites for businesses
+                that want to look sharper, feel more credible and turn attention into enquiries.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#contact" class="btn">Get in touch</a>
+                <a href="#work" class="btn-secondary">View my work</a>
+              </div>
+            </div>
+
+            <div class="hero-meta">
+              <div class="hero-stat">
+                <strong>Branding</strong>
+                <span>Identity systems, graphics, visuals</span>
+              </div>
+              <div class="hero-stat">
+                <strong>Web Design</strong>
+                <span>Clean, responsive, lead-focused sites</span>
+              </div>
+              <div class="hero-stat">
+                <strong>Built to convert</strong>
+                <span>Clear messaging and sharp presentation</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-side">
+            <div class="feature-card">
+              <h3>What clients need now</h3>
+              <p>
+                Strong design is not just about looking good. It is about trust,
+                clarity and making the right first impression from the second someone lands on your page.
+              </p>
+
+              <ul class="feature-list">
+                <li>Professional branding that feels considered and premium</li>
+                <li>Modern websites designed to convert visitors into enquiries</li>
+                <li>Clean visual systems that make your business look established</li>
+              </ul>
+            </div>
+
+            <div class="hero-stack">
+              <div class="mini-card">
+                <strong>Graphic Design</strong>
+                <p>Brand assets, ad creatives, print design, social content and visual identity.</p>
+              </div>
+              <div class="mini-card">
+                <strong>Web Design</strong>
+                <p>Simple, modern and strategic websites that are easy to navigate and built to perform.</p>
+              </div>
+            </div>
+
+            <div class="trust-strip">
+              <div class="trust-box">
+                You only get one first impression. Good design makes that impression feel immediate, confident and credible.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Services</div>
+        <h2>Creative work that looks sharp and works hard.</h2>
+        <p>
+          Whether you need a stronger brand presence or a cleaner website,
+          the goal is the same: give your business a more polished, modern and professional face.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service">
+          <div class="service-num">01</div>
+          <h3>Brand & Graphic Design</h3>
+          <p>
+            Logo work, visual identity, marketing graphics, social assets and
+            branded materials built to give your business a stronger visual presence.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="service-num">02</div>
+          <h3>Website Design</h3>
+          <p>
+            Bespoke websites with clean structure, sharp presentation and a user experience
+            that makes it easy for potential clients to take the next step.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="service-num">03</div>
+          <h3>Creative Direction</h3>
+          <p>
+            A joined-up approach to messaging, layout and presentation so your brand feels consistent,
+            intentional and more premium across every touchpoint.
+          </p>
+        </article>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main">
-          <div class="hero-top">
-            <div class="hero-kicker">Graphic & Web Design Studio</div>
-            <h1>Design that makes your business look the part.</h1>
-            <p>
-              I create high-impact branding, graphics and websites for businesses
-              that want to look sharper, feel more credible and turn attention into enquiries.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#contact" class="btn">Get in touch</a>
-              <a href="#work" class="btn-secondary">View my work</a>
-            </div>
-          </div>
-
-          <div class="hero-meta">
-            <div class="hero-stat">
-              <strong>Branding</strong>
-              <span>Identity systems, graphics, visuals</span>
-            </div>
-            <div class="hero-stat">
-              <strong>Web Design</strong>
-              <span>Clean, responsive, lead-focused sites</span>
-            </div>
-            <div class="hero-stat">
-              <strong>Built to convert</strong>
-              <span>Clear messaging and sharp presentation</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-side">
-          <div class="feature-card">
-            <h3>What clients need now</h3>
-            <p>
-              Strong design is not just about looking good. It is about trust,
-              clarity and making the right first impression from the second someone lands on your page.
-            </p>
-
-            <ul class="feature-list">
-              <li>Professional branding that feels considered and premium</li>
-              <li>Modern websites designed to convert visitors into enquiries</li>
-              <li>Clean visual systems that make your business look established</li>
-            </ul>
-          </div>
-
-          <div class="hero-stack">
-            <div class="mini-card">
-              <strong>Graphic Design</strong>
-              <p>Brand assets, ad creatives, print design, social content and visual identity.</p>
-            </div>
-            <div class="mini-card">
-              <strong>Web Design</strong>
-              <p>Simple, modern and strategic websites that are easy to navigate and built to perform.</p>
-            </div>
-          </div>
-
-          <div class="trust-strip">
-            <div class="trust-box">
-              You only get one first impression. Good design makes that impression feel immediate, confident and credible.
-            </div>
-          </div>
-        </aside>
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Selected Work</div>
+        <h2>Work that feels modern, confident and commercially sharp.</h2>
+        <p>
+          Replace these with your real projects next. For now, this gives the site a proper portfolio presence.
+        </p>
       </div>
-    </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Services</div>
-          <h2>Creative work that looks sharp and works hard.</h2>
-          <p>
-            Whether you need a stronger brand presence or a cleaner website,
-            the goal is the same: give your business a more polished, modern and professional face.
-          </p>
-        </div>
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <div class="portfolio-visual"></div>
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">Brand Identity</span>
+            <h3>Premium brand refresh</h3>
+            <p>Visual identity system designed to make a service business look more established and credible.</p>
+          </div>
+        </article>
 
-        <div class="services-grid">
-          <article class="service">
-            <div class="service-num">01</div>
-            <h3>Brand & Graphic Design</h3>
-            <p>
-              Logo work, visual identity, marketing graphics, social assets and
-              branded materials built to give your business a stronger visual presence.
-            </p>
-          </article>
+        <article class="portfolio-card light">
+          <div class="portfolio-visual alt-1"></div>
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">Website Design</span>
+            <h3>Modern business website</h3>
+            <p>Clean structure, stronger hierarchy and a more polished digital front door for new enquiries.</p>
+          </div>
+        </article>
 
-          <article class="service">
-            <div class="service-num">02</div>
-            <h3>Website Design</h3>
-            <p>
-              Bespoke websites with clean structure, sharp presentation and a user experience
-              that makes it easy for potential clients to take the next step.
-            </p>
-          </article>
+        <article class="portfolio-card">
+          <div class="portfolio-visual alt-2"></div>
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">Creative Assets</span>
+            <h3>Campaign visuals</h3>
+            <p>Branded graphics and digital design created to capture attention and keep the look consistent.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-          <article class="service">
-            <div class="service-num">03</div>
-            <h3>Creative Direction</h3>
-            <p>
-              A joined-up approach to messaging, layout and presentation so your brand feels consistent,
-              intentional and more premium across every touchpoint.
-            </p>
-          </article>
+  <section class="section" id="about">
+    <div class="container about-wrap">
+      <div class="about-card">
+        <div class="eyebrow">About</div>
+        <h3>Luke Irvine Design</h3>
+        <p>
+          I design for businesses that want to present themselves better.
+          That means sharper branding, cleaner websites and visuals that
+          create trust quickly.
+        </p>
+        <p>
+          My approach is simple: make the work look refined, modern and purposeful,
+          without clutter or gimmicks. The result is design that feels premium and communicates clearly.
+        </p>
+
+        <div class="about-points">
+          <div class="about-point">
+            <div>
+              <strong>Clarity first</strong>
+              Better hierarchy, cleaner layouts and messaging that feels easy to take in.
+            </div>
+          </div>
+          <div class="about-point">
+            <div>
+              <strong>Professional presence</strong>
+              Design that helps smaller brands look more credible and established.
+            </div>
+          </div>
+          <div class="about-point">
+            <div>
+              <strong>Modern execution</strong>
+              Contemporary visuals that feel current, sharp and commercially useful.
+            </div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="work">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Selected Work</div>
-          <h2>Work that feels modern, confident and commercially sharp.</h2>
-          <p>
-            Replace these with your real projects next. For now, this gives the site a proper portfolio presence.
-          </p>
-        </div>
+      <div class="contact-card" id="contact">
+        <div class="eyebrow">Contact</div>
+        <h3>Let’s build something that looks the part.</h3>
+        <p>
+          If you need branding, graphics or a website that presents your business properly,
+          send a message below and it will come straight through to me.
+        </p>
 
-        <div class="portfolio-grid">
-          <article class="portfolio-card">
-            <div class="portfolio-visual"></div>
-            <div class="portfolio-overlay">
-              <span class="portfolio-tag">Brand Identity</span>
-              <h3>Premium brand refresh</h3>
-              <p>Visual identity system designed to make a service business look more established and credible.</p>
-            </div>
-          </article>
-
-          <article class="portfolio-card light">
-            <div class="portfolio-visual alt-1"></div>
-            <div class="portfolio-overlay">
-              <span class="portfolio-tag">Website Design</span>
-              <h3>Modern business website</h3>
-              <p>Clean structure, stronger hierarchy and a more polished digital front door for new enquiries.</p>
-            </div>
-          </article>
-
-          <article class="portfolio-card">
-            <div class="portfolio-visual alt-2"></div>
-            <div class="portfolio-overlay">
-              <span class="portfolio-tag">Creative Assets</span>
-              <h3>Campaign visuals</h3>
-              <p>Branded graphics and digital design created to capture attention and keep the look consistent.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container about-wrap">
-        <div class="about-card">
-          <div class="eyebrow">About</div>
-          <h3>Luke Irvine Design</h3>
-          <p>
-            I design for businesses that want to present themselves better.
-            That means sharper branding, cleaner websites and visuals that
-            create trust quickly.
-          </p>
-          <p>
-            My approach is simple: make the work look refined, modern and purposeful,
-            without clutter or gimmicks. The result is design that feels premium and communicates clearly.
-          </p>
-
-          <div class="about-points">
-            <div class="about-point">
-              <div>
-                <strong>Clarity first</strong>
-                Better hierarchy, cleaner layouts and messaging that feels easy to take in.
-              </div>
-            </div>
-            <div class="about-point">
-              <div>
-                <strong>Professional presence</strong>
-                Design that helps smaller brands look more credible and established.
-              </div>
-            </div>
-            <div class="about-point">
-              <div>
-                <strong>Modern execution</strong>
-                Contemporary visuals that feel current, sharp and commercially useful.
-              </div>
-            </div>
+        <div class="contact-list">
+          <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:contact@lukeirvine.co.uk">contact@lukeirvine.co.uk</a>
+          </div>
+          <div class="contact-item">
+            <span>Services</span>
+            <div>Graphic Design / Web Design</div>
+          </div>
+          <div class="contact-item">
+            <span>Based in</span>
+            <div>United Kingdom</div>
           </div>
         </div>
 
-        <div class="contact-card" id="contact">
-          <div class="eyebrow">Contact</div>
-          <h3>Let’s build something that looks the part.</h3>
-          <p>
-            If you need branding, graphics or a website that presents your business properly,
-            get in touch and let’s talk through what you need.
-          </p>
+        <form
+          class="contact-form"
+          action="https://formsubmit.co/contact@lukeirvine.co.uk"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New project enquiry from lukeirvine.co.uk">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
 
-          <div class="contact-list">
-            <div class="contact-item">
-              <span>Email</span>
-              <a href="mailto:contact@lukeirvine.co.uk?subject=Project%20Enquiry">contact@lukeirvine.co.uk</a>
-            </div>
-            <div class="contact-item">
-              <span>Services</span>
-              <div>Graphic Design / Web Design</div>
-            </div>
-            <div class="contact-item">
-              <span>Based in</span>
-              <div>United Kingdom</div>
-            </div>
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
           </div>
 
-          <a href="mailto:contact@lukeirvine.co.uk?subject=Project%20Enquiry" class="btn">Start your project</a>
-        </div>
+          <input type="text" name="service" placeholder="What do you need help with?">
+
+          <textarea name="message" placeholder="Tell me a bit about your project" required></textarea>
+
+          <button type="submit" class="form-button">Send enquiry</button>
+        </form>
+
+        <p class="form-note">
+          Or email directly at
+          <a href="mailto:contact@lukeirvine.co.uk">contact@lukeirvine.co.uk</a>.
+        </p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="container footer-inner">
