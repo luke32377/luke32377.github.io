@@ -136,10 +136,6 @@
       object-fit: contain;
     }
 
-    .brand-text {
-      display: none;
-    }
-
     .nav-links {
       display: flex;
       align-items: center;
@@ -611,6 +607,11 @@
       font-weight: 500;
     }
 
+    .contact-item a {
+      color: var(--blue);
+      word-break: break-word;
+    }
+
     .footer {
       padding: 28px 0 50px;
     }
@@ -679,6 +680,11 @@
       .service {
         padding: 26px;
       }
+
+      .contact-item {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -711,7 +717,7 @@
             </p>
 
             <div class="hero-actions">
-              <a href="mailto:youremail@example.com" class="btn">Get in touch</a>
+              <a href="#contact" class="btn">Get in touch</a>
               <a href="#work" class="btn-secondary">View my work</a>
             </div>
           </div>
@@ -898,7 +904,7 @@
           <div class="contact-list">
             <div class="contact-item">
               <span>Email</span>
-              <a href="mailto:youremail@example.com">youremail@example.com</a>
+              <a href="mailto:contact@lukeirvine.co.uk?subject=Project%20Enquiry">contact@lukeirvine.co.uk</a>
             </div>
             <div class="contact-item">
               <span>Services</span>
@@ -910,7 +916,7 @@
             </div>
           </div>
 
-          <a href="mailto:youremail@example.com" class="btn">Start your project</a>
+          <a href="mailto:contact@lukeirvine.co.uk?subject=Project%20Enquiry" class="btn">Start your project</a>
         </div>
       </div>
     </section>
