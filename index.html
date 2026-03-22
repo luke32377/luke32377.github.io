@@ -1,1018 +1,2680 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luke Irvine Design | Graphic & Web Design</title>
-  <meta
-    name="description"
-    content="Luke Irvine Design creates sharp branding, graphic design and modern websites for ambitious businesses."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --blue: #2b3990;
-      --blue-dark: #1f2a6d;
-      --blue-soft: #dfe4ff;
-      --bg: #f1f2f2;
-      --white: #ffffff;
-      --text: #111827;
-      --muted: #5f6675;
-      --line: rgba(17, 24, 39, 0.08);
-      --shadow: 0 20px 60px rgba(17, 24, 39, 0.08);
-      --radius-lg: 28px;
-      --radius-md: 18px;
-      --max: 1200px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(43, 57, 144, 0.08), transparent 30%),
-        linear-gradient(180deg, #f7f8f8 0%, var(--bg) 100%);
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 18px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 34px;
-      height: 2px;
-      background: var(--blue);
-      border-radius: 999px;
-    }
-
-    .section {
-      padding: 96px 0;
-    }
-
-    .section-head {
-      max-width: 720px;
-      margin-bottom: 42px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.02;
-      margin: 0 0 14px;
-      letter-spacing: -0.04em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .top-shell {
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.16), transparent 26%),
-        linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .top-shell::before {
-      content: "";
-      position: absolute;
-      inset: auto -80px -100px auto;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .top-shell::after {
-      content: "";
-      position: absolute;
-      inset: 40px 40px auto auto;
-      width: 130px;
-      height: 130px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .site-header {
-      position: static;
-      z-index: 50;
-      background: rgba(31, 42, 109, 0.78);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav {
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      min-width: 0;
-    }
-
-    .brand img {
-      width: 185px;
-      height: auto;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .nav-links a {
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 100%;
-      height: 2px;
-      border-radius: 999px;
-      background: white;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s ease;
-    }
-
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .nav-cta {
-      padding: 14px 20px;
-      border-radius: 999px;
-      background: white;
-      color: var(--blue);
-      font-weight: 700;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .nav-cta:hover,
-    .btn:hover,
-    .btn-secondary:hover,
-    .form-button:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero {
-      padding: 24px 0 56px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .hero-main,
-    .hero-side {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: white;
-      padding: 64px;
-      min-height: 640px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      backdrop-filter: blur(6px);
-    }
-
-    .hero-top {
-      max-width: 720px;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: white;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.16);
-      backdrop-filter: blur(10px);
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 6vw, 5.7rem);
-      line-height: 0.94;
-      letter-spacing: -0.06em;
-      margin: 0 0 22px;
-      max-width: 9.5ch;
-    }
-
-    .hero p {
-      font-size: 1.12rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.86);
-      max-width: 670px;
-      margin: 0;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .btn,
-    .btn-secondary,
-    .form-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 54px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    .btn,
-    .form-button {
-      background: white;
-      color: var(--blue);
-      box-shadow: 0 16px 30px rgba(0,0,0,0.12);
-    }
-
-    .btn-secondary {
-      color: white;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .hero-meta {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      margin-top: 42px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .hero-stat strong {
-      display: block;
-      font-size: 1.6rem;
-      line-height: 1;
-      margin-bottom: 8px;
-      color: white;
-    }
-
-    .hero-stat span {
-      color: rgba(255,255,255,0.76);
-      font-size: 0.95rem;
-    }
-
-    .hero-side {
-      background: linear-gradient(180deg, #ffffff 0%, #f7f8fc 100%);
-      padding: 28px;
-      display: grid;
-      gap: 18px;
-      min-height: 640px;
-    }
-
-    .feature-card,
-    .mini-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.04);
-    }
-
-    .feature-card {
-      padding: 32px;
-    }
-
-    .feature-card h3 {
-      font-size: 1.6rem;
-      margin: 0 0 12px;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-
-    .feature-card p,
-    .mini-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0 0;
-      display: grid;
-      gap: 14px;
-    }
-
-    .feature-list li {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      color: #293141;
-      line-height: 1.65;
-      font-weight: 500;
-    }
-
-    .feature-list li::before {
-      content: "•";
-      color: var(--blue);
-      font-size: 1.4rem;
-      line-height: 1;
-      margin-top: -1px;
-    }
-
-    .hero-stack {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: var(--blue);
-    }
-
-    .trust-strip {
-      padding-top: 12px;
-    }
-
-    .trust-box {
-      background: rgba(43, 57, 144, 0.05);
-      border: 1px solid rgba(43, 57, 144, 0.08);
-      border-radius: 22px;
-      padding: 22px 24px;
-      color: #283247;
-      font-weight: 600;
-      line-height: 1.7;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .service {
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 14px 40px rgba(17, 24, 39, 0.04);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-    }
-
-    .service:hover,
-    .portfolio-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(17, 24, 39, 0.08);
-    }
-
-    .service-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: var(--blue);
-      color: white;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    .service h3 {
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      letter-spacing: -0.03em;
-    }
-
-    .service p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .portfolio-card {
-      position: relative;
-      min-height: 340px;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 18px 50px rgba(17, 24, 39, 0.06);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-    }
-
-    .portfolio-visual {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(160deg, rgba(255,255,255,0.16), transparent 35%),
-        linear-gradient(135deg, #3647b3 0%, #1e275f 100%);
-    }
-
-    .portfolio-visual.alt-1 {
-      background:
-        linear-gradient(160deg, rgba(255,255,255,0.16), transparent 35%),
-        linear-gradient(135deg, #ffffff 0%, #dfe4ff 100%);
-    }
-
-    .portfolio-visual.alt-2 {
-      background:
-        linear-gradient(160deg, rgba(255,255,255,0.1), transparent 35%),
-        linear-gradient(135deg, #3f51d6 0%, #10172e 100%);
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 28px;
-      color: white;
-      background: linear-gradient(180deg, transparent 0%, rgba(12, 16, 32, 0.82) 68%);
-    }
-
-    .portfolio-card.light .portfolio-overlay {
-      color: #111827;
-      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.96) 60%);
-    }
-
-    .portfolio-tag {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background: rgba(255,255,255,0.14);
-      margin-bottom: 12px;
-    }
-
-    .portfolio-card.light .portfolio-tag {
-      background: rgba(43, 57, 144, 0.08);
-      color: var(--blue);
-    }
-
-    .portfolio-overlay h3 {
-      margin: 0 0 8px;
-      font-size: 1.35rem;
-      letter-spacing: -0.03em;
-    }
-
-    .portfolio-overlay p {
-      margin: 0;
-      opacity: 0.92;
-      line-height: 1.7;
-    }
-
-    .about-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .about-card,
-    .contact-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 38px;
-      box-shadow: 0 16px 50px rgba(17, 24, 39, 0.05);
-    }
-
-    .about-card h3,
-    .contact-card h3 {
-      margin: 0 0 16px;
-      font-size: 1.8rem;
-      letter-spacing: -0.04em;
-    }
-
-    .about-card p,
-    .contact-card p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .about-points {
-      display: grid;
-      gap: 16px;
-      margin-top: 26px;
-    }
-
-    .about-point {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-    }
-
-    .about-point strong {
-      color: var(--blue);
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin: 24px 0 30px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: #f8f9fb;
-      border: 1px solid rgba(17, 24, 39, 0.05);
-      font-weight: 600;
-    }
-
-    .contact-item span {
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .contact-item a {
-      color: var(--blue);
-      word-break: break-word;
-    }
-
-    .contact-form {
-      margin-top: 10px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      background: #f8f9fb;
-      border-radius: 16px;
-      padding: 16px 18px;
-      font: inherit;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: rgba(43, 57, 144, 0.35);
-      box-shadow: 0 0 0 4px rgba(43, 57, 144, 0.08);
-      background: white;
-    }
-
-    .contact-form textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .form-note {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-top: 8px;
-    }
-
-    .footer {
-      padding: 28px 0 50px;
-    }
-
-    .footer-inner {
-      border-top: 1px solid rgba(17, 24, 39, 0.08);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .services-grid,
-      .portfolio-grid,
-      .about-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-main,
-      .hero-side {
-        min-height: auto;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        min-height: 78px;
-      }
-
-      .brand img {
-        width: 150px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 18px;
-      }
-
-      .hero-main {
-        padding: 34px 24px;
-      }
-
-      .hero-side {
-        padding: 18px;
-      }
-
-      .hero-stack,
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 72px 0;
-      }
-
-      .about-card,
-      .contact-card,
-      .feature-card,
-      .service {
-        padding: 26px;
-      }
-
-      .contact-item {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="top-shell">
-    <header class="site-header">
-      <div class="container nav">
-        <a href="#top" class="brand" aria-label="Luke Irvine Design home">
-          <img src="./lukeirvinedesign_blue.png" alt="Luke Irvine Design logo" />
-        </a>
-
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a href="#contact" class="nav-cta">Start a project</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-main">
-            <div class="hero-top">
-              <div class="hero-kicker">Graphic & Web Design Studio</div>
-              <h1>Design that makes your business look the part.</h1>
-              <p>
-                I create high-impact branding, graphics and websites for businesses
-                that want to look sharper, feel more credible and turn attention into enquiries.
-              </p>
-
-              <div class="hero-actions">
-                <a href="#contact" class="btn">Get in touch</a>
-                <a href="#work" class="btn-secondary">View my work</a>
-              </div>
+<html style="font-size: 16px;"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Hey, we're Design Agency, about us, Design Agency is defined by our approach; we value discovery, innovation and the art of invention., What We Do, We understand that individual inspiration can only be realized through the power of collaboration., Our Team, Contact Us"><meta name="description" content="">
+    <title></title>
+    <link rel="stylesheet" href="/nicepage.css" media="screen">
+    <script class="u-script" type="text/javascript" src="np://app.desktop.nicepage.com/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="np://app.desktop.nicepage.com/nicepage.js" defer=""></script>
+<meta name="generator" content="Nicepage 8.3.6, nicepage.com"></head>
+<body class="u-body u-clearfix u-xl-mode" data-style="blank" data-posts="" data-global-section-properties="{&quot;colorings&quot;:{&quot;light&quot;:[&quot;clean&quot;],&quot;colored&quot;:[&quot;clean&quot;],&quot;dark&quot;:[&quot;dark&quot;]}}" data-source="fix" data-template-id="23325" data-lang="en" data-page-sections-style="[{&quot;tags&quot;:&quot;blank&quot;}]" data-page-coloring-types="{&quot;light&quot;:[&quot;clean&quot;],&quot;colored&quot;:[&quot;clean&quot;],&quot;dark&quot;:[&quot;dark&quot;]}" data-page-category="&quot;Basic&quot;">
+    <section class="u-clearfix u-color-var u-block-9af9-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="9af9" id="block-2" data-outline-name="Block 2">
+        <style data-mode="XL" data-visited="true">@media (min-width: 1200px) {
+  .u-block-9af9-1 {
+    background-image: none;
+    --color-var: #f1f2f2;
+  }
+  .u-block-9af9-2 {
+    min-height: 870px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .u-block-9af9-3 {
+    width: 1046px;
+    min-height: 497px;
+    height: auto;
+    margin-top: 133px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-9af9-4 {
+    padding-left: 20px;
+  }
+  .u-block-9af9-7 {
+    width: 254px;
+    height: 150px;
+    margin-top: 27px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="LG" data-visited="true">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-9af9-1 {
+    background-image: none;
+    --color-var: #f1f2f2;
+  }
+  .u-block-9af9-2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 870px;
+  }
+  .u-block-9af9-3 {
+    width: 940px;
+    min-height: 497px;
+    margin-top: 133px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-9af9-4 {
+    padding-left: 16px;
+  }
+  .u-block-9af9-7 {
+    width: 254px;
+    height: 150px;
+    margin-top: 27px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="MD" data-visited="true">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-9af9-1 {
+    background-image: none;
+    --color-var: #f1f2f2;
+  }
+  .u-block-9af9-2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 870px;
+  }
+  .u-block-9af9-3 {
+    width: 720px;
+    min-height: 497px;
+    margin-top: 133px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-9af9-4 {
+    padding-left: 13px;
+  }
+  .u-block-9af9-7 {
+    width: 254px;
+    height: 150px;
+    margin-top: 27px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="SM" data-visited="true">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-9af9-1 {
+    background-image: none;
+    --color-var: #f1f2f2;
+  }
+  .u-block-9af9-2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 870px;
+  }
+  .u-block-9af9-3 {
+    width: 540px;
+    min-height: 497px;
+    margin-top: 133px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-9af9-4 {
+    padding-left: 9px;
+  }
+  .u-block-9af9-7 {
+    width: 254px;
+    height: 150px;
+    margin-top: 27px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="XS" data-visited="true">@media (max-width: 575px) {
+  .u-block-9af9-1 {
+    background-image: none;
+    --color-var: #f1f2f2;
+  }
+  .u-block-9af9-2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 870px;
+  }
+  .u-block-9af9-3 {
+    width: 340px;
+    min-height: 497px;
+    margin-top: 133px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-9af9-4 {
+    padding-left: 6px;
+  }
+  .u-block-9af9-7 {
+    width: 254px;
+    height: 150px;
+    margin-top: 27px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <div class="u-clearfix u-sheet u-block-9af9-2">
+            <div class="custom-expanded u-container-style u-group u-block-9af9-3">
+                <div class="u-container-layout u-block-9af9-4">
+                    
+                    
+                <img class="u-image u-image-default u-preserve-proportions u-block-9af9-7" src="np://user.desktop.nicepage.com/Site_1614205118/images/lukeirvinedesign_blue.svg?rand=2b0f" alt="" data-image-width="254" data-image-height="150"></div>
             </div>
-
-            <div class="hero-meta">
-              <div class="hero-stat">
-                <strong>Branding</strong>
-                <span>Identity systems, graphics, visuals</span>
-              </div>
-              <div class="hero-stat">
-                <strong>Web Design</strong>
-                <span>Clean, responsive, lead-focused sites</span>
-              </div>
-              <div class="hero-stat">
-                <strong>Built to convert</strong>
-                <span>Clear messaging and sharp presentation</span>
-              </div>
-            </div>
-          </div>
-
-          <aside class="hero-side">
-            <div class="feature-card">
-              <h3>What clients need now</h3>
-              <p>
-                Strong design is not just about looking good. It is about trust,
-                clarity and making the right first impression from the second someone lands on your page.
-              </p>
-
-              <ul class="feature-list">
-                <li>Professional branding that feels considered and premium</li>
-                <li>Modern websites designed to convert visitors into enquiries</li>
-                <li>Clean visual systems that make your business look established</li>
-              </ul>
-            </div>
-
-            <div class="hero-stack">
-              <div class="mini-card">
-                <strong>Graphic Design</strong>
-                <p>Brand assets, ad creatives, print design, social content and visual identity.</p>
-              </div>
-              <div class="mini-card">
-                <strong>Web Design</strong>
-                <p>Simple, modern and strategic websites that are easy to navigate and built to perform.</p>
-              </div>
-            </div>
-
-            <div class="trust-strip">
-              <div class="trust-box">
-                You only get one first impression. Good design makes that impression feel immediate, confident and credible.
-              </div>
-            </div>
-          </aside>
         </div>
-      </section>
-    </main>
-  </div>
-
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Services</div>
-        <h2>Creative work that looks sharp and works hard.</h2>
-        <p>
-          Whether you need a stronger brand presence or a cleaner website,
-          the goal is the same: give your business a more polished, modern and professional face.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <article class="service">
-          <div class="service-num">01</div>
-          <h3>Brand & Graphic Design</h3>
-          <p>
-            Logo work, visual identity, marketing graphics, social assets and
-            branded materials built to give your business a stronger visual presence.
-          </p>
-        </article>
-
-        <article class="service">
-          <div class="service-num">02</div>
-          <h3>Website Design</h3>
-          <p>
-            Bespoke websites with clean structure, sharp presentation and a user experience
-            that makes it easy for potential clients to take the next step.
-          </p>
-        </article>
-
-        <article class="service">
-          <div class="service-num">03</div>
-          <h3>Creative Direction</h3>
-          <p>
-            A joined-up approach to messaging, layout and presentation so your brand feels consistent,
-            intentional and more premium across every touchpoint.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="work">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Selected Work</div>
-        <h2>Work that feels modern, confident and commercially sharp.</h2>
-        <p>
-          Replace these with your real projects next. For now, this gives the site a proper portfolio presence.
-        </p>
-      </div>
-
-      <div class="portfolio-grid">
-        <article class="portfolio-card">
-          <div class="portfolio-visual"></div>
-          <div class="portfolio-overlay">
-            <span class="portfolio-tag">Brand Identity</span>
-            <h3>Premium brand refresh</h3>
-            <p>Visual identity system designed to make a service business look more established and credible.</p>
-          </div>
-        </article>
-
-        <article class="portfolio-card light">
-          <div class="portfolio-visual alt-1"></div>
-          <div class="portfolio-overlay">
-            <span class="portfolio-tag">Website Design</span>
-            <h3>Modern business website</h3>
-            <p>Clean structure, stronger hierarchy and a more polished digital front door for new enquiries.</p>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-visual alt-2"></div>
-          <div class="portfolio-overlay">
-            <span class="portfolio-tag">Creative Assets</span>
-            <h3>Campaign visuals</h3>
-            <p>Branded graphics and digital design created to capture attention and keep the look consistent.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="container about-wrap">
-      <div class="about-card">
-        <div class="eyebrow">About</div>
-        <h3>Luke Irvine Design</h3>
-        <p>
-          I design for businesses that want to present themselves better.
-          That means sharper branding, cleaner websites and visuals that
-          create trust quickly.
-        </p>
-        <p>
-          My approach is simple: make the work look refined, modern and purposeful,
-          without clutter or gimmicks. The result is design that feels premium and communicates clearly.
-        </p>
-
-        <div class="about-points">
-          <div class="about-point">
-            <div>
-              <strong>Clarity first</strong>
-              Better hierarchy, cleaner layouts and messaging that feels easy to take in.
+    </section>
+    <section class="u-black u-clearfix u-block-08ff-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="08ff" id="block-3" data-outline-name="Block 3">
+        <div class="u-clearfix u-sheet u-block-08ff-2">
+            <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-block-08ff-3">
+                <div class="u-container-layout u-block-08ff-4">
+                    <h2 class="u-align-center u-text u-text-palette-2-base u-block-08ff-5">about us</h2>
+                    <h3 class="u-align-center u-text u-block-08ff-6">Our process applies techniques from a variety of disciplines, values distinction in detail and gives careful consideration to the unique needs and qualities of each client. We meet every project’s challenges with creativity, expertise
+                        and the experience required to successfully bring compelling interiors and environments to life.</h3>
+                    <div class="u-border-3 u-border-palette-2-base u-line u-line-horizontal u-block-08ff-7"></div>
+                </div>
             </div>
-          </div>
-          <div class="about-point">
-            <div>
-              <strong>Professional presence</strong>
-              Design that helps smaller brands look more credible and established.
-            </div>
-          </div>
-          <div class="about-point">
-            <div>
-              <strong>Modern execution</strong>
-              Contemporary visuals that feel current, sharp and commercially useful.
-            </div>
-          </div>
         </div>
-      </div>
-
-      <div class="contact-card" id="contact">
-        <div class="eyebrow">Contact</div>
-        <h3>Let’s build something that looks the part.</h3>
-        <p>
-          If you need branding, graphics or a website that presents your business properly,
-          send a message below and it will come straight through to me.
-        </p>
-
-        <div class="contact-list">
-          <div class="contact-item">
-            <span>Email</span>
-            <a href="mailto:contact@lukeirvine.co.uk">contact@lukeirvine.co.uk</a>
-          </div>
-          <div class="contact-item">
-            <span>Services</span>
-            <div>Graphic Design / Web Design</div>
-          </div>
-          <div class="contact-item">
-            <span>Based in</span>
-            <div>United Kingdom</div>
-          </div>
+        <style data-mode="XL" data-visited="true">@media (min-width: 1200px) {
+  .u-block-08ff-1 {
+    background-image: none;
+  }
+  .u-block-08ff-2 {
+    min-height: 475px;
+  }
+  .u-block-08ff-3 {
+    width: 939px;
+    min-height: 387px;
+    height: auto;
+    margin-top: 44px;
+    margin-bottom: 44px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .u-block-08ff-4 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-08ff-5 {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-top: 44px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-6 {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    margin-top: 26px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-7 {
+    width: 116px;
+    transform-origin: left center 0;
+    position: absolute;
+    left: 412px;
+    top: 298px;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="LG" data-visited="true">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-08ff-1 {
+    background-image: none;
+  }
+  .u-block-08ff-2 {
+    min-height: 601px;
+  }
+  .u-block-08ff-3 {
+    width: 774px;
+    min-height: 472px;
+    margin-top: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+  }
+  .u-block-08ff-4 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-08ff-5 {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-top: 44px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-6 {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    margin-top: 26px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-7 {
+    width: 96px;
+    transform-origin: left center 0;
+    position: absolute;
+    left: 339px;
+    top: 388px;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="MD" data-visited="true">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-08ff-1 {
+    background-image: none;
+  }
+  .u-block-08ff-2 {
+    min-height: 601px;
+  }
+  .u-block-08ff-3 {
+    width: 657px;
+    min-height: 472px;
+    margin-top: 65px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 30px;
+  }
+  .u-block-08ff-4 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-08ff-5 {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-top: 22px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-6 {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-7 {
+    width: 73px;
+    transform-origin: left center 0;
+    position: absolute;
+    left: 292px;
+    top: 368px;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="SM" data-visited="true">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-08ff-1 {
+    background-image: none;
+  }
+  .u-block-08ff-2 {
+    min-height: 601px;
+  }
+  .u-block-08ff-3 {
+    min-height: 524px;
+    margin-top: 39px;
+    margin-bottom: 39px;
+  }
+  .u-block-08ff-4 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-08ff-5 {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-top: 22px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-6 {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-7 {
+    width: 69px;
+    transform-origin: left center 0;
+    position: absolute;
+    left: 236px;
+    top: 442px;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="XS" data-visited="true">@media (max-width: 575px) {
+  .u-block-08ff-1 {
+    background-image: none;
+  }
+  .u-block-08ff-2 {
+    min-height: 601px;
+  }
+  .u-block-08ff-3 {
+    min-height: 524px;
+    margin-top: 39px;
+    margin-bottom: 39px;
+  }
+  .u-block-08ff-4 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-08ff-5 {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-top: 22px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-6 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-08ff-7 {
+    width: 58px;
+    transform-origin: left center 0;
+    position: absolute;
+    left: 141px;
+    top: 440px;
+    transform: rotate(20deg);
+  }
+}</style>
+    </section>
+    <section class="u-clearfix u-image u-shading u-block-b81a-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="b81a" id="block-4" data-outline-name="Block 4">
+        <div class="u-clearfix u-sheet u-valign-middle u-block-b81a-2">
+            <div class="u-align-right u-container-align-right u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-block-b81a-3">
+                <div class="u-container-layout u-block-b81a-4">
+                    <h2 class="u-custom-font u-font-titillium-Web u-text u-block-b81a-5">Design Agency is defined by our approach; we value discovery, innovation and the art of invention.</h2><a href="#" class="u-btn u-button-style u-palette-1-base u-block-b81a-6">read more</a></div>
+            </div>
         </div>
-
-        <form
-          class="contact-form"
-          action="https://formsubmit.co/contact@lukeirvine.co.uk"
-          method="POST"
-        >
-          <input type="hidden" name="_subject" value="New project enquiry from lukeirvine.co.uk">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-
-          <div class="form-row">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-          </div>
-
-          <input type="text" name="service" placeholder="What do you need help with?">
-
-          <textarea name="message" placeholder="Tell me a bit about your project" required></textarea>
-
-          <button type="submit" class="form-button">Send enquiry</button>
-        </form>
-
-        <p class="form-note">
-          Or email directly at
-          <a href="mailto:contact@lukeirvine.co.uk">contact@lukeirvine.co.uk</a>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© 2026 LukeIrvineDesign</div>
-      <div>Graphic Design · Web Design · Branding</div>
-    </div>
-  </footer>
-</body>
-</html>
+        <style data-mode="XL">@media (min-width: 1200px) {
+  .u-block-b81a-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto826349.jpg?rand=51a2');
+    background-position: 50% 50%;
+  }
+  .u-block-b81a-2 {
+    min-height: 759px;
+  }
+  .u-block-b81a-3 {
+    width: 824px;
+    min-height: 380px;
+    height: auto;
+    margin-top: 60px;
+    margin-right: -1px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+  .u-block-b81a-4 {
+    padding-right: 20px;
+  }
+  .u-block-b81a-5 {
+    margin-left: 20px;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b81a-6 {
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+  }
+}</style>
+        <style data-mode="LG">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-b81a-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto826349.jpg?rand=51a2');
+    background-position: 50% 50%;
+  }
+  .u-block-b81a-2 {
+    min-height: 622px;
+  }
+  .u-block-b81a-3 {
+    width: 770px;
+    min-height: 432px;
+    margin-top: 60px;
+    margin-right: -1px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+  .u-block-b81a-4 {
+    padding-right: 16px;
+  }
+  .u-block-b81a-5 {
+    margin-left: 16px;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b81a-6 {
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+  }
+}</style>
+        <style data-mode="MD">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-b81a-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto826349.jpg?rand=51a2');
+    background-position: 50% 50%;
+  }
+  .u-block-b81a-2 {
+    min-height: 688px;
+  }
+  .u-block-b81a-3 {
+    min-height: 498px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .u-block-b81a-4 {
+    padding-right: 13px;
+  }
+  .u-block-b81a-5 {
+    margin-left: 13px;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b81a-6 {
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+  }
+}</style>
+        <style data-mode="SM">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-b81a-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto826349.jpg?rand=51a2');
+    background-position: 50% 50%;
+  }
+  .u-block-b81a-2 {
+    min-height: 688px;
+  }
+  .u-block-b81a-3 {
+    min-height: 386px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .u-block-b81a-4 {
+    padding-right: 9px;
+  }
+  .u-block-b81a-5 {
+    margin-left: 9px;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+  .u-block-b81a-6 {
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+  }
+}</style>
+        <style data-mode="XS">@media (max-width: 575px) {
+  .u-block-b81a-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.3)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto826349.jpg?rand=51a2');
+    background-position: 50% 50%;
+  }
+  .u-block-b81a-2 {
+    min-height: 688px;
+  }
+  .u-block-b81a-3 {
+    min-height: 386px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .u-block-b81a-4 {
+    padding-right: 6px;
+  }
+  .u-block-b81a-5 {
+    margin-left: 6px;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+  .u-block-b81a-6 {
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+  }
+}</style>
+    </section>
+    <section class="u-clearfix u-palette-3-base u-block-db60-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="db60" id="block-5" data-outline-name="Block 5">
+        <div class="u-clearfix u-sheet u-block-db60-2">
+            <div class="u-container-style u-group u-block-db60-3">
+                <div class="u-container-layout u-block-db60-4">
+                    <h2 class="u-custom-font u-font-titillium-Web u-text u-block-db60-5">What We Do</h2>
+                </div>
+            </div>
+            <div class="u-clearfix u-expanded-width u-gutter-42 u-layout-wrap u-block-db60-6">
+                <div class="u-layout">
+                    <div class="u-layout-col">
+                        <div class="u-size-30">
+                            <div class="u-layout-row">
+                                <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-block-db60-7">
+                                    <div class="u-container-layout u-block-db60-8">
+                                        <h3 class="u-custom-font u-font-titillium-Web u-text u-block-db60-9"><a href="http://www.designagency.co.uk/branding">Branding</a></h3>
+                                        <p class="u-text u-block-db60-10">Through research and exploration, we will design a memorable brand that you will be proud of.&nbsp;From logos and photography to copywriting and brand guidelines.</p><a href="#" class="u-btn u-button-style u-palette-2-base u-block-db60-11">read more</a></div>
+                                </div>
+                                <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-block-db60-12">
+                                    <div class="u-container-layout u-block-db60-13">
+                                        <h3 class="u-custom-font u-font-titillium-Web u-text u-block-db60-14"><a href="http://www.designagency.co.uk/web-development">Web Design &amp;&nbsp;Development</a><br></h3>
+                                        <p class="u-text u-block-db60-15">Designing and building business critical web apps and responsive websites is our true passion. Our teams work in concert making sure everything functions well across different browsers and screens.</p><a href="#" class="u-btn u-button-style u-palette-2-base u-block-db60-16">read more</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-size-30">
+                            <div class="u-layout-row">
+                                <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-block-db60-17">
+                                    <div class="u-container-layout u-block-db60-18">
+                                        <h3 class="u-custom-font u-font-titillium-Web u-text u-block-db60-19"><a href="http://www.designagency.co.uk/digital-marketing">Digital Marketing</a><br></h3>
+                                        <p class="u-text u-block-db60-20">Whether you are an established business or a startup, ensuring you have a well thought out digital marketing plan in place, is vital to the success of your website, and ultimately your business.</p><a href="#" class="u-btn u-button-style u-palette-2-base u-block-db60-21">read more</a></div>
+                                </div>
+                                <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-block-db60-22">
+                                    <div class="u-container-layout u-block-db60-23">
+                                        <h3 class="u-custom-font u-font-titillium-Web u-text u-block-db60-24"><a href="http://www.designagency.co.uk/umbraco-content-management">Umbraco Development</a><br></h3>
+                                        <p class="u-text u-block-db60-25">Umbraco is a fully-featured open source content management system with the flexibility to run anything from small campaign or brochure sites right through to complex applications.</p><a href="#" class="u-btn u-button-style u-palette-2-base u-block-db60-26">read more</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style data-mode="XL" data-visited="true">@media (min-width: 1200px) {
+  .u-block-db60-1 {
+    background-image: none;
+  }
+  .u-block-db60-2 {
+    min-height: 842px;
+  }
+  .u-block-db60-3 {
+    width: 754px;
+    min-height: 120px;
+    height: auto;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-4 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-db60-5 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 34px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-6 {
+    width: 1140px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 61px;
+    margin-left: 0;
+  }
+  .u-block-db60-7 {
+    min-height: 326px;
+    background-image: none;
+  }
+  .u-block-db60-8 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-db60-9 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-10 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-11 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 46px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+  .u-block-db60-12 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-13 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-db60-14 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-15 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-16 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 158px;
+    height: 42px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-17 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-18 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-db60-19 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+  }
+  .u-block-db60-20 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .u-block-db60-21 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 21px;
+    margin-left: 0;
+  }
+  .u-block-db60-22 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-23 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-db60-24 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-25 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-26 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 158px;
+    height: 42px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="LG" data-visited="true">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-db60-1 {
+    background-image: none;
+  }
+  .u-block-db60-2 {
+    min-height: 400px;
+  }
+  .u-block-db60-3 {
+    width: 622px;
+    min-height: 120px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-4 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-db60-5 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 34px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-6 {
+    margin-top: 21px;
+    margin-bottom: 61px;
+  }
+  .u-block-db60-7 {
+    min-height: 326px;
+    background-image: none;
+  }
+  .u-block-db60-8 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-db60-9 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-10 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-11 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 46px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+  .u-block-db60-12 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-13 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-db60-14 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-15 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-16 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 130px;
+    height: 42px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-17 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-18 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-db60-19 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+  }
+  .u-block-db60-20 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .u-block-db60-21 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 21px;
+    margin-left: 0;
+  }
+  .u-block-db60-22 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-23 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-db60-24 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-25 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-26 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 130px;
+    height: 42px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="MD" data-visited="true">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-db60-1 {
+    background-image: none;
+  }
+  .u-block-db60-2 {
+    min-height: 400px;
+  }
+  .u-block-db60-3 {
+    width: 476px;
+    min-height: 120px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-4 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-db60-5 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 34px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-6 {
+    margin-top: 21px;
+    margin-bottom: 61px;
+  }
+  .u-block-db60-7 {
+    min-height: 326px;
+    background-image: none;
+  }
+  .u-block-db60-8 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-db60-9 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-10 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-11 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 46px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+  .u-block-db60-12 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-13 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-db60-14 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-15 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-16 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 100px;
+    height: 42px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-17 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-18 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-db60-19 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+  }
+  .u-block-db60-20 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .u-block-db60-21 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 21px;
+    margin-left: 0;
+  }
+  .u-block-db60-22 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-23 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-db60-24 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-25 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-26 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 100px;
+    height: 42px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="SM" data-visited="true">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-db60-1 {
+    background-image: none;
+  }
+  .u-block-db60-2 {
+    min-height: 400px;
+  }
+  .u-block-db60-3 {
+    width: 446px;
+    min-height: 120px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-4 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-db60-5 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 34px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-6 {
+    margin-top: 21px;
+    margin-bottom: 61px;
+  }
+  .u-block-db60-7 {
+    min-height: 326px;
+    background-image: none;
+  }
+  .u-block-db60-8 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-db60-9 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-10 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-11 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 46px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+  .u-block-db60-12 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-13 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-db60-14 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-15 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-16 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 94px;
+    height: 42px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-17 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-18 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-db60-19 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+  }
+  .u-block-db60-20 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .u-block-db60-21 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 21px;
+    margin-left: 0;
+  }
+  .u-block-db60-22 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-23 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-db60-24 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-25 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-26 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 94px;
+    height: 42px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="XS" data-visited="true">@media (max-width: 575px) {
+  .u-block-db60-1 {
+    background-image: none;
+  }
+  .u-block-db60-2 {
+    min-height: 400px;
+  }
+  .u-block-db60-3 {
+    width: 340px;
+    min-height: 120px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-4 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-db60-5 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 34px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-6 {
+    margin-top: 21px;
+    margin-bottom: 61px;
+  }
+  .u-block-db60-7 {
+    min-height: 326px;
+    background-image: none;
+  }
+  .u-block-db60-8 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-db60-9 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-10 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-11 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 46px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+  .u-block-db60-12 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-13 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-db60-14 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-15 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-16 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 79px;
+    height: 42px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-db60-17 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-18 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-db60-19 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+  }
+  .u-block-db60-20 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .u-block-db60-21 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 21px;
+    margin-left: 0;
+  }
+  .u-block-db60-22 {
+    background-image: none;
+    min-height: 326px;
+  }
+  .u-block-db60-23 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-db60-24 {
+    position: relative;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-25 {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-db60-26 {
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    width: 79px;
+    height: 42px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+    </section>
+    <section class="u-black u-clearfix u-block-baa2-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="baa2" id="block-6" data-outline-name="Block 6">
+        <div class="u-clearfix u-sheet u-block-baa2-2">
+            <div class="u-container-style u-group u-block-baa2-3">
+                <div class="u-container-layout u-block-baa2-4"><img src="np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto1251093.jpeg?rand=9ea5" alt="" class="u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-image u-image-contain u-image-default u-block-baa2-5">
+                    <h3 class="u-align-center u-text u-block-baa2-6">DesignAgency is an award-winning studio with a talent for envisioning inspired environments and brands. Our exceptional designs are driven by the collaborative spirit of our studio that values the evolution of unique and functional
+                        spaces through innovation and creativity.</h3>
+                    <div class="u-border-3 u-border-palette-2-base u-line u-line-horizontal u-block-baa2-7"></div>
+                </div>
+            </div>
+        </div>
+        <style data-mode="XL" data-visited="true">@media (min-width: 1200px) {
+  .u-block-baa2-1 {
+    background-image: none;
+  }
+  .u-block-baa2-2 {
+    min-height: 809px;
+  }
+  .u-block-baa2-3 {
+    width: 962px;
+    min-height: 766px;
+    height: auto;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .u-block-baa2-5 {
+    width: 368px;
+    height: 457px;
+    object-position: 0% 100%;
+    background-position: 0% 100%;
+    margin-top: 34px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+  .u-block-baa2-6 {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+  .u-block-baa2-7 {
+    width: 116px;
+    transform-origin: left center 0;
+    position: absolute;
+    left: 423px;
+    top: 677px;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="LG" data-visited="true">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-baa2-1 {
+    background-image: none;
+  }
+  .u-block-baa2-2 {
+    min-height: 810px;
+  }
+  .u-block-baa2-3 {
+    width: 793px;
+    min-height: 730px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .u-block-baa2-5 {
+    width: 303px;
+    height: 303px;
+    object-position: 0% 100%;
+    background-position: 0% 100%;
+    margin-top: 86px;
+    margin-right: 237px;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-baa2-6 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    width: auto;
+    margin-top: 53px;
+    margin-right: 16px;
+    margin-bottom: 0;
+    margin-left: 32px;
+  }
+  .u-block-baa2-7 {
+    width: 96px;
+    left: 349px;
+    top: 654px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="MD" data-visited="true">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-baa2-1 {
+    background-image: none;
+  }
+  .u-block-baa2-2 {
+    min-height: 764px;
+  }
+  .u-block-baa2-3 {
+    width: 607px;
+    min-height: 684px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 34px;
+  }
+  .u-block-baa2-5 {
+    width: 232px;
+    height: 228px;
+    object-position: 0% 100%;
+    background-position: 0% 100%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+  .u-block-baa2-6 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    margin-top: 57px;
+    margin-left: 19px;
+    margin-right: 19px;
+    margin-bottom: 0;
+    width: 569px;
+  }
+  .u-block-baa2-7 {
+    width: 73px;
+    left: 267px;
+    top: 617px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="SM" data-visited="true">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-baa2-1 {
+    background-image: none;
+  }
+  .u-block-baa2-2 {
+    min-height: 764px;
+  }
+  .u-block-baa2-3 {
+    width: 540px;
+    min-height: 684px;
+    margin-top: 40px;
+    margin-bottom: 34px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .u-block-baa2-4 {
+    padding-left: 14px;
+  }
+  .u-block-baa2-5 {
+    width: 218px;
+    height: 228px;
+    object-position: 0% 100%;
+    background-position: 0% 100%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+  .u-block-baa2-6 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    margin-top: 32px;
+    margin-right: 14px;
+    margin-bottom: 0;
+    margin-left: 1px;
+    width: 511px;
+  }
+  .u-block-baa2-7 {
+    width: 69px;
+    left: 236px;
+    top: 620px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="XS" data-visited="true">@media (max-width: 575px) {
+  .u-block-baa2-1 {
+    background-image: none;
+  }
+  .u-block-baa2-2 {
+    min-height: 764px;
+  }
+  .u-block-baa2-3 {
+    width: 340px;
+    min-height: 684px;
+    margin-top: 40px;
+    margin-bottom: 34px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .u-block-baa2-4 {
+    padding-left: 6px;
+  }
+  .u-block-baa2-5 {
+    width: 183px;
+    height: 228px;
+    object-position: 0% 100%;
+    background-position: 0% 100%;
+    margin-top: 40px;
+    margin-right: 71px;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-baa2-6 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    margin-top: 32px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 0;
+    width: 322px;
+  }
+  .u-block-baa2-7 {
+    width: 58px;
+    left: 141px;
+    top: 631px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+    </section>
+    <section class="u-clearfix u-image u-shading u-block-ff85-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="ff85" id="block-7" data-outline-name="Block 7">
+        <div class="u-clearfix u-sheet u-block-ff85-2">
+            <div class="u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-block-ff85-3">
+                <div class="u-container-layout u-block-ff85-4">
+                    <h2 class="u-custom-font u-font-titillium-Web u-text u-block-ff85-5">We understand that individual inspiration can only be realized through the power of collaboration.</h2><a href="#" class="u-btn u-button-style u-palette-1-base u-block-ff85-6">read more</a></div>
+            </div>
+        </div>
+        <style data-mode="XL" data-visited="true">@media (min-width: 1200px) {
+  .u-block-ff85-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto1243522.jpeg?rand=9209');
+    background-position: 50% 50%;
+  }
+  .u-block-ff85-2 {
+    min-height: 676px;
+  }
+  .u-block-ff85-3 {
+    width: 844px;
+    min-height: 447px;
+    height: auto;
+    margin-top: 115px;
+    margin-right: auto;
+    margin-bottom: 115px;
+    margin-left: 0;
+  }
+  .u-block-ff85-4 {
+    padding-left: 20px;
+  }
+  .u-block-ff85-5 {
+    position: relative;
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 61px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-ff85-6 {
+    position: relative;
+    background-image: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-right: 713px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="LG" data-visited="true">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-ff85-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto1243522.jpeg?rand=9209');
+    background-position: 50% 50%;
+  }
+  .u-block-ff85-2 {
+    min-height: 683px;
+  }
+  .u-block-ff85-3 {
+    width: 913px;
+    min-height: 453px;
+    margin-top: 115px;
+    margin-right: auto;
+    margin-bottom: 70px;
+    margin-left: 0;
+  }
+  .u-block-ff85-4 {
+    padding-left: 16px;
+  }
+  .u-block-ff85-5 {
+    position: relative;
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 61px;
+    margin-right: 16px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-ff85-6 {
+    position: relative;
+    background-image: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-right: 588px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="MD" data-visited="true">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-ff85-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto1243522.jpeg?rand=9209');
+    background-position: 50% 50%;
+  }
+  .u-block-ff85-2 {
+    min-height: 704px;
+  }
+  .u-block-ff85-3 {
+    min-height: 519px;
+    margin-top: 115px;
+    margin-bottom: 70px;
+  }
+  .u-block-ff85-4 {
+    padding-left: 13px;
+  }
+  .u-block-ff85-5 {
+    position: relative;
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 61px;
+    margin-right: 13px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-ff85-6 {
+    position: relative;
+    background-image: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-right: 450px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="SM" data-visited="true">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-ff85-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto1243522.jpeg?rand=9209');
+    background-position: 50% 50%;
+  }
+  .u-block-ff85-2 {
+    min-height: 704px;
+  }
+  .u-block-ff85-3 {
+    min-height: 519px;
+    margin-top: 115px;
+    margin-bottom: 70px;
+  }
+  .u-block-ff85-4 {
+    padding-left: 9px;
+  }
+  .u-block-ff85-5 {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 61px;
+    margin-right: 9px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-ff85-6 {
+    position: relative;
+    background-image: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-right: 338px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+        <style data-mode="XS" data-visited="true">@media (max-width: 575px) {
+  .u-block-ff85-1 {
+    background-image: linear-gradient(0deg, rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2), rgba(var(--palette-2-base-r), var(--palette-2-base-g), var(--palette-2-base-b), 0.2)), url('np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto1243522.jpeg?rand=9209');
+    background-position: 50% 50%;
+  }
+  .u-block-ff85-2 {
+    min-height: 704px;
+  }
+  .u-block-ff85-3 {
+    min-height: 519px;
+    margin-top: 115px;
+    margin-bottom: 70px;
+  }
+  .u-block-ff85-4 {
+    padding-left: 6px;
+  }
+  .u-block-ff85-5 {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 61px;
+    margin-right: 6px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-ff85-6 {
+    position: relative;
+    background-image: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-right: 213px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}</style>
+    </section>
+    <section class="u-clearfix u-palette-1-base u-block-dd77-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="dd77" id="block-8" data-outline-name="Block 8">
+        <div class="u-clearfix u-sheet u-block-dd77-2">
+            <div class="u-clearfix u-layout-wrap u-block-dd77-3">
+                <div class="u-gutter-0 u-layout">
+                    <div class="u-layout-row">
+                        <div class="u-size-32 u-size-60-md">
+                            <div class="u-layout-row">
+                                <div class="u-container-style u-layout-cell u-left-cell u-size-60 u-block-dd77-4">
+                                    <div class="u-container-layout u-block-dd77-5"><img class="u-expanded-height u-image u-block-dd77-6" src="np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto8263491.jpeg?rand=4539"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-size-28 u-size-60-md">
+                            <div class="u-layout-col">
+                                <div class="u-size-40">
+                                    <div class="u-layout-row">
+                                        <div class="u-container-style u-layout-cell u-right-cell u-size-60 u-block-dd77-7">
+                                            <div class="u-container-layout u-block-dd77-8"><img class="u-image u-block-dd77-9" src="np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto618613.jpeg?rand=f07c"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="u-size-20">
+                                    <div class="u-layout-row">
+                                        <div class="u-container-style u-layout-cell u-size-30 u-block-dd77-10">
+                                            <div class="u-container-layout u-block-dd77-11"><img src="np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto380769.jpeg?rand=043b" alt="" class="u-expanded-width u-image u-image-default u-block-dd77-12" data-image-width="1260" data-image-height="707"></div>
+                                        </div>
+                                        <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-block-dd77-13">
+                                            <div class="u-container-layout u-block-dd77-14"><img src="np://user.desktop.nicepage.com/Site_1614205118/images/pexelsphoto1181396.jpeg?rand=b68e" alt="" class="u-image u-image-default u-block-dd77-15" data-image-width="1124" data-image-height="750"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="u-align-right u-container-align-right u-container-style u-group u-block-dd77-16">
+                <div class="u-container-layout u-block-dd77-17">
+                    <h2 class="u-custom-font u-font-titillium-Web u-text u-block-dd77-18">Our Team</h2>
+                    <div class="u-border-3 u-border-palette-2-base u-line u-line-horizontal u-block-dd77-19"></div>
+                </div>
+            </div>
+        </div>
+        <style data-mode="XL" data-visited="true">@media (min-width: 1200px) {
+  .u-block-dd77-1 {
+    background-image: none;
+  }
+  .u-block-dd77-2 {
+    min-height: 779px;
+  }
+  .u-block-dd77-3 {
+    width: 875px;
+    margin-top: 122px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-dd77-4 {
+    background-image: none;
+    min-height: 657px;
+  }
+  .u-block-dd77-6 {
+    height: 657px;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 476px;
+  }
+  .u-block-dd77-7 {
+    min-height: 374px;
+  }
+  .u-block-dd77-9 {
+    margin-top: 49px;
+    margin-right: auto;
+    margin-left: 0;
+    width: 567px;
+    height: 326px;
+    object-position: 100% 0%;
+    background-position: 100% 0%;
+  }
+  .u-block-dd77-10 {
+    background-image: none;
+    min-height: 283px;
+  }
+  .u-block-dd77-12 {
+    height: 250px;
+    margin-top: 33px;
+    margin-right: auto;
+    margin-left: 0;
+  }
+  .u-block-dd77-13 {
+    background-image: none;
+    min-height: 283px;
+  }
+  .u-block-dd77-15 {
+    width: 376px;
+    height: 250px;
+    margin-top: 33px;
+    margin-right: auto;
+    margin-left: 33px;
+  }
+  .u-block-dd77-16 {
+    width: 407px;
+    min-height: 262px;
+    height: auto;
+    margin-top: -753px;
+    margin-right: 0;
+    margin-bottom: 492px;
+    margin-left: auto;
+  }
+  .u-block-dd77-17 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-dd77-18 {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-dd77-19 {
+    width: 116px;
+    left: 271px;
+    top: 111px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="LG" data-visited="true">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-dd77-1 {
+    background-image: none;
+  }
+  .u-block-dd77-2 {
+    min-height: 779px;
+  }
+  .u-block-dd77-3 {
+    width: 721px;
+    margin-top: 122px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-dd77-4 {
+    min-height: 657px;
+    background-image: none;
+  }
+  .u-block-dd77-6 {
+    width: 392px;
+  }
+  .u-block-dd77-7 {
+    min-height: 374px;
+  }
+  .u-block-dd77-9 {
+    margin-top: 49px;
+    margin-right: auto;
+    margin-left: 0;
+    width: 468px;
+    height: 326px;
+    object-position: 100% 0%;
+    background-position: 100% 0%;
+  }
+  .u-block-dd77-10 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-12 {
+    height: 250px;
+    margin-top: 33px;
+  }
+  .u-block-dd77-13 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-15 {
+    width: 310px;
+    height: 250px;
+    margin-top: 33px;
+    margin-right: auto;
+    margin-left: 27px;
+  }
+  .u-block-dd77-16 {
+    width: 336px;
+    min-height: 262px;
+    margin-top: -753px;
+    margin-right: 0;
+    margin-bottom: 492px;
+    margin-left: auto;
+  }
+  .u-block-dd77-17 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-dd77-18 {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-dd77-19 {
+    width: 96px;
+    left: 223px;
+    top: 111px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="MD" data-visited="true">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-dd77-1 {
+    background-image: none;
+  }
+  .u-block-dd77-2 {
+    min-height: 779px;
+  }
+  .u-block-dd77-3 {
+    width: 553px;
+    margin-top: 122px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-dd77-4 {
+    min-height: 657px;
+    background-image: none;
+  }
+  .u-block-dd77-6 {
+    width: 301px;
+  }
+  .u-block-dd77-7 {
+    min-height: 374px;
+  }
+  .u-block-dd77-9 {
+    margin-top: 49px;
+    margin-right: auto;
+    margin-left: 0;
+    width: 358px;
+    height: 326px;
+    object-position: 100% 0%;
+    background-position: 100% 0%;
+  }
+  .u-block-dd77-10 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-12 {
+    height: 250px;
+    margin-top: 33px;
+  }
+  .u-block-dd77-13 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-15 {
+    width: 237px;
+    height: 250px;
+    margin-top: 33px;
+    margin-right: auto;
+    margin-left: 21px;
+  }
+  .u-block-dd77-16 {
+    width: 257px;
+    min-height: 262px;
+    margin-top: -753px;
+    margin-right: 0;
+    margin-bottom: 492px;
+    margin-left: auto;
+  }
+  .u-block-dd77-17 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-dd77-18 {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-dd77-19 {
+    width: 73px;
+    left: 171px;
+    top: 111px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="SM" data-visited="true">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-dd77-1 {
+    background-image: none;
+  }
+  .u-block-dd77-2 {
+    min-height: 1719px;
+  }
+  .u-block-dd77-3 {
+    width: 518px;
+    margin-top: 122px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-dd77-4 {
+    min-height: 657px;
+    background-image: none;
+  }
+  .u-block-dd77-6 {
+    width: 282px;
+  }
+  .u-block-dd77-7 {
+    min-height: 374px;
+  }
+  .u-block-dd77-9 {
+    margin-top: 49px;
+    margin-right: auto;
+    margin-left: 0;
+    width: 336px;
+    height: 326px;
+    object-position: 100% 0%;
+    background-position: 100% 0%;
+  }
+  .u-block-dd77-10 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-12 {
+    height: 250px;
+    margin-top: 33px;
+  }
+  .u-block-dd77-13 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-15 {
+    width: 223px;
+    height: 250px;
+    margin-top: 33px;
+    margin-right: auto;
+    margin-left: 16px;
+  }
+  .u-block-dd77-16 {
+    width: 241px;
+    min-height: 262px;
+    margin-top: -1417px;
+    margin-right: 22px;
+    margin-bottom: 1156px;
+    margin-left: auto;
+  }
+  .u-block-dd77-17 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-dd77-18 {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-dd77-19 {
+    width: 69px;
+    left: 163px;
+    top: 190px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+        <style data-mode="XS" data-visited="true">@media (max-width: 575px) {
+  .u-block-dd77-1 {
+    background-image: none;
+  }
+  .u-block-dd77-2 {
+    min-height: 1719px;
+  }
+  .u-block-dd77-3 {
+    width: 340px;
+    margin-top: 122px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-dd77-4 {
+    min-height: 657px;
+    background-image: none;
+  }
+  .u-block-dd77-6 {
+    width: 237px;
+  }
+  .u-block-dd77-7 {
+    min-height: 374px;
+  }
+  .u-block-dd77-9 {
+    margin-top: 49px;
+    margin-right: auto;
+    margin-left: 0;
+    width: 282px;
+    height: 326px;
+    object-position: 100% 0%;
+    background-position: 100% 0%;
+  }
+  .u-block-dd77-10 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-12 {
+    height: 250px;
+    margin-top: 33px;
+  }
+  .u-block-dd77-13 {
+    min-height: 283px;
+    background-image: none;
+  }
+  .u-block-dd77-15 {
+    width: 187px;
+    height: 250px;
+    margin-top: 33px;
+    margin-right: auto;
+    margin-left: 10px;
+  }
+  .u-block-dd77-16 {
+    width: 202px;
+    min-height: 262px;
+    margin-top: -1269px;
+    margin-right: 0;
+    margin-bottom: 1007px;
+    margin-left: auto;
+  }
+  .u-block-dd77-17 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-dd77-18 {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .u-block-dd77-19 {
+    width: 58px;
+    left: 139px;
+    top: 182px;
+    transform-origin: left center 0;
+    position: absolute;
+    transform: rotate(20deg);
+  }
+}</style>
+    </section>
+    <section class="u-black u-clearfix u-block-b455-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="b455" id="block-9" data-outline-name="Block 9">
+        <div class="u-clearfix u-sheet u-block-b455-2">
+            <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-block-b455-3">
+                <div class="u-layout">
+                    <div class="u-layout-row">
+                        <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-block-b455-4">
+                            <div class="u-container-layout u-block-b455-5">
+                                <h2 class="u-custom-font u-font-titillium-Web u-text u-block-b455-6">Contact</h2>
+                                <h3 class="u-text u-block-b455-7">845 ADELAIDE STREET WEST&nbsp;<br>TORONTO, ONTARIO, CANADA M6 55X1&nbsp;<br>+1.416.703.4444<br>Contact@lukeirvine.co.uk</h3>
+                            </div>
+                        </div>
+                        <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-block-b455-8">
+                            <div class="u-container-layout u-block-b455-9"><img src="np://user.desktop.nicepage.com/Site_1614205118/images/lukeirvinedesign_white.svg?rand=0ca4" alt="" class="u-image u-image-contain u-image-default u-block-b455-10" data-image-width="254" data-image-height="150"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style data-mode="XL" data-visited="true">@media (min-width: 1200px) {
+  .u-block-b455-1 {
+    background-image: none;
+  }
+  .u-block-b455-2 {
+    min-height: 378px;
+  }
+  .u-block-b455-3 {
+    margin-top: 53px;
+    margin-right: auto;
+    margin-bottom: 53px;
+    margin-left: 0;
+  }
+  .u-block-b455-4 {
+    min-height: 273px;
+  }
+  .u-block-b455-5 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-block-b455-6 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b455-7 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    line-height: 1.8;
+    letter-spacing: 2px;
+  }
+  .u-block-b455-8 {
+    min-height: 273px;
+  }
+  .u-block-b455-10 {
+    width: 304px;
+    height: 105px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+}</style>
+        <style data-mode="LG" data-visited="true">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-b455-1 {
+    background-image: none;
+  }
+  .u-block-b455-2 {
+    min-height: 378px;
+  }
+  .u-block-b455-3 {
+    margin-top: 53px;
+    margin-bottom: 53px;
+  }
+  .u-block-b455-4 {
+    min-height: 273px;
+  }
+  .u-block-b455-5 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .u-block-b455-6 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b455-7 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    line-height: 1.8;
+    letter-spacing: 2px;
+  }
+  .u-block-b455-8 {
+    min-height: 273px;
+  }
+  .u-block-b455-10 {
+    width: 251px;
+    height: 105px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+}</style>
+        <style data-mode="MD" data-visited="true">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-b455-1 {
+    background-image: none;
+  }
+  .u-block-b455-2 {
+    min-height: 378px;
+  }
+  .u-block-b455-3 {
+    margin-top: 53px;
+    margin-bottom: 53px;
+  }
+  .u-block-b455-4 {
+    min-height: 273px;
+  }
+  .u-block-b455-5 {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  .u-block-b455-6 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b455-7 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    line-height: 1.8;
+    letter-spacing: 2px;
+  }
+  .u-block-b455-8 {
+    min-height: 273px;
+  }
+  .u-block-b455-10 {
+    width: 192px;
+    height: 105px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+}</style>
+        <style data-mode="SM" data-visited="true">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-b455-1 {
+    background-image: none;
+  }
+  .u-block-b455-2 {
+    min-height: 378px;
+  }
+  .u-block-b455-3 {
+    margin-top: 53px;
+    margin-bottom: 53px;
+  }
+  .u-block-b455-4 {
+    min-height: 273px;
+  }
+  .u-block-b455-5 {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  .u-block-b455-6 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b455-7 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    line-height: 1.8;
+    letter-spacing: 2px;
+  }
+  .u-block-b455-8 {
+    min-height: 110px;
+  }
+  .u-block-b455-10 {
+    width: 180px;
+    height: 105px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+}</style>
+        <style data-mode="XS" data-visited="true">@media (max-width: 575px) {
+  .u-block-b455-1 {
+    background-image: none;
+  }
+  .u-block-b455-2 {
+    min-height: 378px;
+  }
+  .u-block-b455-3 {
+    margin-top: 53px;
+    margin-bottom: 53px;
+  }
+  .u-block-b455-4 {
+    min-height: 273px;
+  }
+  .u-block-b455-5 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .u-block-b455-6 {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 3.75rem;
+  }
+  .u-block-b455-7 {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    line-height: 1.8;
+    letter-spacing: 2px;
+  }
+  .u-block-b455-8 {
+    min-height: 110px;
+  }
+  .u-block-b455-10 {
+    width: 151px;
+    height: 105px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+}</style>
+    </section>
+</body></html>
