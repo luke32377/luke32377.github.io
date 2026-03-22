@@ -1,0 +1,152 @@
+ .u-section-1 {
+  --color-var: #f2f1f1;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 737px;
+}
+
+.u-section-1 .u-image-1 {
+  --radius: 10px;
+  width: 340px;
+  height: 205px;
+  margin: 121px auto 0 24px;
+}
+
+.u-section-1 .u-image-2 {
+  --radius: 10px;
+  width: 340px;
+  height: 205px;
+  margin: -205px auto 0;
+}
+
+.u-section-1 .u-image-3 {
+  --radius: 10px;
+  width: 340px;
+  height: 205px;
+  margin: -205px 24px 0 auto;
+}
+
+.u-section-1 .u-image-4 {
+  --radius: 10px;
+  width: 340px;
+  height: 205px;
+  margin: 36px auto 0 24px;
+}
+
+.u-section-1 .u-image-5 {
+  --radius: 10px;
+  width: 340px;
+  height: 205px;
+  margin: -205px auto 0;
+}
+
+.u-section-1 .u-image-6 {
+  --radius: 10px;
+  width: 340px;
+  height: 205px;
+  margin: -205px auto 60px 776px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-image-1 {
+    margin-top: 60px;
+    margin-left: 25px;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: 20px;
+  }
+
+  .u-section-1 .u-image-3 {
+    margin-top: 20px;
+  }
+
+  .u-section-1 .u-image-4 {
+    margin-left: 12px;
+  }
+
+  .u-section-1 .u-image-5 {
+    margin-top: 20px;
+    margin-left: 288px;
+  }
+
+  .u-section-1 .u-image-6 {
+    margin-top: 20px;
+    margin-left: 588px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-image-5 {
+    margin-left: 178px;
+  }
+
+  .u-section-1 .u-image-6 {
+    margin-left: 368px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-image-5 {
+    margin-left: 88px;
+  }
+
+  .u-section-1 .u-image-6 {
+    margin-left: 188px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1505px;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-top: 36px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: 36px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-image-3 {
+    margin-top: 36px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-image-4 {
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-image-5 {
+    margin-top: 36px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-image-6 {
+    margin-top: 36px;
+    margin-bottom: 59px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+}@font-face {
+  font-family: 'Calvino-Grande-Black-trial';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Calvino-Grande-Black-trial.ttf);
+}
+/* page-custom-fonts */

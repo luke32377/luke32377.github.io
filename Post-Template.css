@@ -84,4 +84,10 @@
     height: 275px;
     margin-left: initial;
   }
+}@font-face {
+  font-family: 'Calvino-Grande-Black-trial';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Calvino-Grande-Black-trial.ttf);
 }
+/* page-custom-fonts */
