@@ -1,5 +1,6 @@
  .u-section-1 {
   --color-var: #2b3990;
+  --text-color-var: #ffffff;
 }
 
 .u-section-1 .u-sheet-1 {
@@ -8,12 +9,14 @@
 
 .u-section-1 .u-text-1 {
   font-family: Calvino-Grande-Black-trial;
+  --text-color-var: #f1f2f2;
   margin: 115px auto 0;
 }
 
 .u-section-1 .u-text-2 {
   font-size: 3rem;
   font-family: Calvino-Grande-Black-trial;
+  --text-color-var: #f1f2f2;
   margin: 82px auto 0;
 }
 
@@ -63,9 +66,8 @@
     margin-bottom: 60px;
   }
 } .u-section-2 {
-  background-image: url("images/photo-1610438250910-01cb769c1334.jpeg");
+  background-image: url("images/03ncfkxhbwcb1copy.png");
   --border-color-var: #f2f1f1;
-  background-position: 50% 50%;
 }
 
 .u-section-2 .u-sheet-1 {
@@ -73,6 +75,10 @@
 }
 
 @media (max-width: 1199px) {
+   .u-section-2 {
+    background-position: 50% 50%;
+  }
+
   .u-section-2 .u-sheet-1 {
     min-height: 400px;
   }

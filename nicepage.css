@@ -26724,8 +26724,8 @@ h6 {
   color: #ffffff;
 }
 .u-body {
-  color: #ffffff;
-  background-color: #333333;
+  color: #111111;
+  background-color: #f1f2f2;
   --effect-scale: 1.1;
 }
 /*end-variables color*/
@@ -46488,15 +46488,15 @@ a.u-link.u-text-hover-color-var:hover {
         /** color-rules **/
 
         /** alt-color-rules **/
-        :where(.u-custom-color-1, .u-body-color, .u-bg-color, .u-palette-1-base, .u-palette-1-dark-3, .u-palette-1-dark-2, .u-palette-1-dark-1, .u-palette-1, .u-palette-1-light-1, .u-palette-2-base, .u-palette-2-dark-3, .u-palette-2-dark-2, .u-palette-2-dark-1, .u-palette-2, .u-palette-2-light-1, .u-palette-3-dark-3, .u-palette-3-dark-2, .u-palette-3-dark-1, .u-palette-4-base, .u-palette-4-dark-3, .u-palette-4-dark-2, .u-palette-4-dark-1, .u-palette-5-dark-3, .u-palette-5-dark-2, .u-palette-5-dark-1, .u-grey-40, .u-grey-30, .u-grey-90, .u-grey-80, .u-grey-75, .u-black, .u-grey-70, .u-grey-60, .u-grey-50, .u-grey-dark-3, .u-grey-dark-2, .u-grey-dark-1, .u-grey, .u-shading) a, :where(.u-overlap-contrast .u-header) a:not(.u-nav-link):not(.u-btn)
+        :where(.u-custom-color-1, .u-body-color, .u-palette-1-base, .u-palette-1-dark-3, .u-palette-1-dark-2, .u-palette-1-dark-1, .u-palette-1, .u-palette-1-light-1, .u-palette-2-base, .u-palette-2-dark-3, .u-palette-2-dark-2, .u-palette-2-dark-1, .u-palette-2, .u-palette-2-light-1, .u-palette-3-dark-3, .u-palette-3-dark-2, .u-palette-3-dark-1, .u-palette-4-base, .u-palette-4-dark-3, .u-palette-4-dark-2, .u-palette-4-dark-1, .u-palette-5-dark-3, .u-palette-5-dark-2, .u-palette-5-dark-1, .u-grey-40, .u-grey-30, .u-grey-90, .u-grey-80, .u-grey-75, .u-black, .u-grey-70, .u-grey-60, .u-grey-50, .u-grey-dark-3, .u-grey-dark-2, .u-grey-dark-1, .u-grey, .u-shading) a, :where(.u-overlap-contrast .u-header) a:not(.u-nav-link):not(.u-btn)
         {
         color: #adcce9;
         }
-        :where(.u-custom-color-1, .u-body-color, .u-bg-color, .u-palette-1-base, .u-palette-1-dark-3, .u-palette-1-dark-2, .u-palette-1-dark-1, .u-palette-1, .u-palette-1-light-1, .u-palette-2-base, .u-palette-2-dark-3, .u-palette-2-dark-2, .u-palette-2-dark-1, .u-palette-2, .u-palette-2-light-1, .u-palette-3-dark-3, .u-palette-3-dark-2, .u-palette-3-dark-1, .u-palette-4-base, .u-palette-4-dark-3, .u-palette-4-dark-2, .u-palette-4-dark-1, .u-palette-5-dark-3, .u-palette-5-dark-2, .u-palette-5-dark-1, .u-grey-40, .u-grey-30, .u-grey-90, .u-grey-80, .u-grey-75, .u-black, .u-grey-70, .u-grey-60, .u-grey-50, .u-grey-dark-3, .u-grey-dark-2, .u-grey-dark-1, .u-grey) a:hover
+        :where(.u-custom-color-1, .u-body-color, .u-palette-1-base, .u-palette-1-dark-3, .u-palette-1-dark-2, .u-palette-1-dark-1, .u-palette-1, .u-palette-1-light-1, .u-palette-2-base, .u-palette-2-dark-3, .u-palette-2-dark-2, .u-palette-2-dark-1, .u-palette-2, .u-palette-2-light-1, .u-palette-3-dark-3, .u-palette-3-dark-2, .u-palette-3-dark-1, .u-palette-4-base, .u-palette-4-dark-3, .u-palette-4-dark-2, .u-palette-4-dark-1, .u-palette-5-dark-3, .u-palette-5-dark-2, .u-palette-5-dark-1, .u-grey-40, .u-grey-30, .u-grey-90, .u-grey-80, .u-grey-75, .u-black, .u-grey-70, .u-grey-60, .u-grey-50, .u-grey-dark-3, .u-grey-dark-2, .u-grey-dark-1, .u-grey) a:hover
         {
         color: #a1a1a1;
         }
-        :where(.u-custom-color-1, .u-body-color, .u-bg-color, .u-palette-1-base, .u-palette-1-dark-3, .u-palette-1-dark-2, .u-palette-1-dark-1, .u-palette-1, .u-palette-1-light-1, .u-palette-2-base, .u-palette-2-dark-3, .u-palette-2-dark-2, .u-palette-2-dark-1, .u-palette-2, .u-palette-2-light-1, .u-palette-3-dark-3, .u-palette-3-dark-2, .u-palette-3-dark-1, .u-palette-4-base, .u-palette-4-dark-3, .u-palette-4-dark-2, .u-palette-4-dark-1, .u-palette-5-dark-3, .u-palette-5-dark-2, .u-palette-5-dark-1, .u-grey-40, .u-grey-30, .u-grey-90, .u-grey-80, .u-grey-75, .u-black, .u-grey-70, .u-grey-60, .u-grey-50, .u-grey-dark-3, .u-grey-dark-2, .u-grey-dark-1, .u-grey) a:active
+        :where(.u-custom-color-1, .u-body-color, .u-palette-1-base, .u-palette-1-dark-3, .u-palette-1-dark-2, .u-palette-1-dark-1, .u-palette-1, .u-palette-1-light-1, .u-palette-2-base, .u-palette-2-dark-3, .u-palette-2-dark-2, .u-palette-2-dark-1, .u-palette-2, .u-palette-2-light-1, .u-palette-3-dark-3, .u-palette-3-dark-2, .u-palette-3-dark-1, .u-palette-4-base, .u-palette-4-dark-3, .u-palette-4-dark-2, .u-palette-4-dark-1, .u-palette-5-dark-3, .u-palette-5-dark-2, .u-palette-5-dark-1, .u-grey-40, .u-grey-30, .u-grey-90, .u-grey-80, .u-grey-75, .u-black, .u-grey-70, .u-grey-60, .u-grey-50, .u-grey-dark-3, .u-grey-dark-2, .u-grey-dark-1, .u-grey) a:active
         {
         color: #a1a1a1;
         }
